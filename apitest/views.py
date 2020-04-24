@@ -32,7 +32,7 @@ def home(request):
     """
     跳转主页
     """
-    return render(request,'home1.html')
+    return render(request,'home.html')
 
 def logout(request):
     auth.logout(request)
