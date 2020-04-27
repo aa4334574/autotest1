@@ -3,7 +3,7 @@ from apitest.models import Apitest,Apistep
 # Register your models here.
 
 class ApistepAdmin(admin.TabularInline):
-    list_display = ['apiname','apiurl','apiparamvalue','apimethod','apiresult','apistatus','create_time','id','Apitest']
+    list_display = ['apistep','apiname','apiurl','apiparamvalue','apimethod','apiresult','apistatus','create_time','id','Apitest']
     model = Apistep
     extra = 1
 class ApitestAdmin(admin.ModelAdmin):

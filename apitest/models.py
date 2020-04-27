@@ -19,7 +19,8 @@ class Apitest(models.Model):
 
 class Apistep(models.Model):
     Apitest = models.ForeignKey('Apitest',on_delete = models.CASCADE,)#接口表,关联流程接口id
-    apitestname = models.CharField('接口名称',max_length = 100)#接口名称
+    apistep = models.CharField('测试步骤',max_length = 100,null=True)#测试步骤
+    apiname = models.CharField('接口名称',max_length = 100)#接口名称
     apitesturl = models.CharField('url地址',max_length=200)#url地址
     apiparamvalue = models.CharField('请求参数和值',max_length = 800)#执行人
     apiresponse = models.CharField('返回值',max_length = 800)#返回值
@@ -33,6 +34,6 @@ class Apistep(models.Model):
     #     verbose_name_plural = '流程场景接口'
 
     def __str__(self):
-        return self.name
+        return self.apiname
 # Create your models here.
 
