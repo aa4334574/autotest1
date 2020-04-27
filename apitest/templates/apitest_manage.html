@@ -17,7 +17,7 @@
                 <li><a href="#">流程测试步骤</a> </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">{{user}}</a> </li>
+                <li><a href="#">{{ user }}</a> </li>
                 <li><a href="/logout/">退出</a> </li>
             </ul>
         </div>
@@ -50,7 +50,7 @@
             <td>{{ apitest.apitestresult }}</td>
             <td>{{ apitest.Apiset.apiteststep }}</td>
         </tr>
-        {% end if %}
+        {% endfor %}
         </tbody>
         </table>
     </div>

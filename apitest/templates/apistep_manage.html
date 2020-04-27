@@ -17,7 +17,7 @@
                 <li class="active"><a href="/apistep_manage/">流程接口测试步骤</a> </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">{{user}}</a></li>
+                <li><a href="#">{{ user }}</a></li>
                 <li><a href="/logout/">退出</a></li>
             </ul>
         </div>
@@ -34,7 +34,7 @@
                 <td>所属用例</td>
                 <td>测试步骤</td>
                 <td>URL地址</td>
-                <td>参数值</td>
+                <td>请求参数</td>
                 <td>请求方法</td>
                 <td>预期结果</td>
                 <td>实际结果</td>
@@ -42,15 +42,17 @@
             </tr>
             </thead>
             <tbody>
-            {% for apistep in apisteps %}
+            {%for apistep in apisteps%}
             <tr>
                 <td>{{ apistep.Apitest.Product.productname }}</td>
                 <td>case{{ apistep.Apitest.id }}:{{ apistep.Apitest.apitestname }}</td>
                 <td>{{ apistep.apistep}}:{{apistep.apiname }}</td>
-                <td>{{ apistep.apiurl }}</td>
-                <td>{{ apistep.apiparmvalue }}</td>
+                <td>{{ apistep.apitesturl }}</td>
+                <td>{{ apistep.apiparamvalue }}</td>
+                <td>{{ apistep.apimethod }}</td>
+                <td>{{ apistep.apiresponse }}</td>
                 <td>{{ apistep.apiresult }}</td>
-                <td>{% if apistep.apistatus ==1 %}
+                <td>{% if apistep.apistatus == 1 %}
                 <a style="color:green">({ apistep.aipstatus })</a>
                 {% else %}
                 <a style="color:red">{{ apistep.apistatus }}</a>
