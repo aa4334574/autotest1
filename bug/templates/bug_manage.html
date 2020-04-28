@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>Bug管理</title>
+</head>
+<body role="document">
+<!--导航栏-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">&nbsp;</a>
+        <ul class="nav justify-content-center"> </ul>
+        <ul class="nav justify-content-end">
+            <li class="nav-link"><a style='color:white' href="#">{{user}}</a></li>
+            <li class="nav-link"><a style='color:white' href="/logout/">退出</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-  bug列表-->
+<div class="row" style="padding-top: 70px;">
+    <div class="col-md-11">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>产品</td>
+                <td>Bug名称</td>
+                <td>Bug详情</td>
+                <td>解决状态</td>
+                <td>严重程度</td>
+                <td>创建人</td>
+                <td>分配给</td>
+                <td>创建时间</td>
+                <td>更新时间</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for bug in bugs %}
+            <tr>
+                <td>{{ bug.id }}</td>
+                <td>{{ bug.Product.productname }}</td>
+                <td>{{ bug.bugname }}</td>
+                <td title="{{ bug.bugdetail }}">{{ bug.bugdetail }}</td>
+                <td>{{ bug.bugstatus }}</td>
+                <td>{{ bug.bug_leval }}</td>
+                <td>{{ bug.bugcreater }}</td>
+                <td>{{ bug.bugassign  }}</td>
+                <td>{{ bug.create_time }}</td>
+                <td>{{ bug.update_time }}</td>
+                {% endfor %}
+            </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

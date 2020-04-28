@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'apitest',
     'product',
     'bootstrap4',
+    'bug',
+    'set',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 #LANGUAGE_CODE = 'en-us'
 
 #TIME_ZONE = 'UTC'
-
+#设置语言
 LANGUAGE_CODE = 'zh-Hans'
 
 TIME_ZONE = 'Asia/Shanghai'
