@@ -19,6 +19,8 @@ from apitest import views#加入引用，准备创建映射
 from product import proviews
 from bug import views as bugviews
 from set import views as setviews
+from apptest import views as appviews
+from webtest import views as webviews
 
 
 urlpatterns = [
@@ -33,4 +35,8 @@ urlpatterns = [
     path('bug_manage/',bugviews.bug_manage),
     path('set_manage/',setviews.set_manage),
     path('user_manage/',setviews.set_user),
+    path('appcase_manage/',appviews.appcase_manage),
+    path('appcasestep_manage/',appviews.appcasestep_manage),
+    path('webcase_manage/',webviews.webcase_manage),
+    path('webcasestep_manage/',webviews.webcasestep_manage),
 ]

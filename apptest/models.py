@@ -24,7 +24,7 @@ class Appcasestep(models.Model):
     appoptmethod = models.CharField('操作方法',max_length = 200)#操作方法
     apptestdata = models.CharField('测试数据',max_length = 300)#测试数据
     appassertdata = models.CharField('断点数据',max_length = 300)#断点数据
-    apptestresult = models.CharField('测试结果',max_length= 200)#测试结果
+    apptestresult = models.BooleanField('测试结果')#测试结果
     create_time = models.DateTimeField('创建时间',auto_now_add = True)
     updata_time = models.DateTimeField('更新时间',auto_now = True)
     def __str__(self):
