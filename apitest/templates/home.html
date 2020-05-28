@@ -2,18 +2,27 @@
 <html lang="en">
 <head>
     <meta http-equiv="CONTENT-TYPE" content="text/html" charset="UTF-8">
+    <!--<meta http-equiv="X-Frame-Options" content="">-->
     <title>自动化测试平台</title>
     <style>body{text-align:center}</style>
+
+    <!--<style type="text/css">-->
+    <!--iframe{display: none;}-->
+    <!--</style>-->
 </head>
-<body>
+
+<iframe src="http://127.0.0.1:8000/left/" name="leftFrame" scrolling="auto" noresize ></iframe>
+<iframe src="../apitest_manage" name="mainFrame" scrolling="NO" noresize></iframe>
+<noframes>
+    <body role="document">
     <h1>自动化测试艺术</h1>
-</ul>
-<ul class="nav navbar-nav navbar-right">
-    <li>
-        欢迎你，<a href="#">{{user}}</a>
-    </li>
-    <li><a href="/logout/">退出</a> </li>
-</ul>
-</body>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            欢迎你，<a href="#">{{user}}</a>
+        </li>
+        <li><a href="/logout/">退出</a></li>
+    </ul>
+    </body>
 </noframes>
 </html>
