@@ -41,4 +41,6 @@ urlpatterns = [
     path('webcasestep_manage/',webviews.webcasestep_manage),
     path('api_report/',views.test_report),
     path('left/',views.left),
+    path('apisearch/',views.apisearch),
+    path('apistepsearch/',views.apistepsearch),
 ]

@@ -5,24 +5,61 @@
     <!--<meta http-equiv="X-Frame-Options" content="">-->
     <title>自动化测试平台</title>
     <style>body{text-align:center}</style>
+    <style>
+        .btns{
+        /*border: black solid 1px;*/
+        <!--background-color: black;-->
+        float: left;
+        /*列表的点去掉*/
+        list-style: none;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        /*当行高等于父容器高度的时候，文字垂直方向居中*/
+        line-height: 30px;
+        color: white;
+        }
+        /*当鼠标放上去，改变btn的颜色*/
+        .btns:hover{
+        color: white;
+        font-weight: bold;
+        background: deeppink
+        }
+    </style>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 
-    <!--<style type="text/css">-->
-    <!--iframe{display: none;}-->
-    <!--</style>-->
 </head>
 
-<iframe src="http://127.0.0.1:8000/left/" name="leftFrame" scrolling="auto" noresize ></iframe>
-<iframe src="../apitest_manage" name="mainFrame" scrolling="NO" noresize></iframe>
-<noframes>
-    <body role="document">
-    <h1>自动化测试艺术</h1>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            欢迎你，<a href="#">{{user}}</a>
-        </li>
-        <li><a href="/logout/">退出</a></li>
-    </ul>
-    </body>
-</noframes>
+<!--<iframe src="http://127.0.0.1:8000/left/" name="leftFrame" scrolling="auto" noresize></iframe>-->
+<!--<iframe src="../apitest_manage" name="mainFrame" scrolling="NO" noresize></iframe>-->
+<body role="document">
+<!--<h1>自动化测试艺术</h1>-->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">&nbsp;</a>
+        <ul class="nav justify-content-center"></ul>
+        <!--<ul class="nav justify-content-end">-->
+        <!--<li class="nav-link"><a style='color:white' href="#">{{user}}</a></li>-->
+        <!--<li class="nav-link"><a style='color:white' href="/logout/">退出</a></li>-->
+        <!--</ul>-->
+        <li class="btns"><a href="../apitest_manage">接口管理</a></li>
+        <li class="btns"><a href="../appcase_manage">&nbsp;&nbsp;APP用例</a></li>
+        <li class="btns"><a href="../bug_manage">&nbsp;&nbsp;BUG管理</a></li>
+        <li class="btns"><a href="../product_manage">&nbsp;&nbsp;产品管理</a></li>
+        <li class="btns"><a href="../api_report">&nbsp;&nbsp;测试报告</a></li>
+        <li class="btns"><a href="../user_manage">&nbsp;&nbsp;用户管理</a></li>
+        <li class="btns"><a href="../set_manage">&nbsp;&nbsp;系统设置</a></li>
+        <li class="btns"><a href="/admin/">&nbsp;&nbsp;后台管理</a></li>
+        <ul class="nav justify-content-end">
+            <li class="nav-link"><a style='color:white' href="#">{{user}}</a></li>
+            <li class="nav-link"><a style='color:white' href="/logout/">退出</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+</body>
 </html>

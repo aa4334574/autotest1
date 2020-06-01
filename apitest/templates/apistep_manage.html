@@ -11,28 +11,40 @@
 <!-- 导航栏-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">自动化测试平台</a>
+        <a class="navbar-brand" href="#">单一接口测试</a>
         <ul class="nav justify-content-center">
             <a class="nav-link" style='color:white' href="/apitest_manage/">流程接口测试</a>
             &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-            <a class="nav-link" style='color:white' href="/apistep_manage/">流程接口测试步骤</a>
+            <a class="nav-link" style='color:white' href="/apistep_manage/">单一接口测试</a>
         </ul>
         <ul class="nav justify-content-end">
             <li class="nav-link"><a style='color:white' href="#">{{user}}</a></li>
             <li class="nav-link"><a style='color:white' href="/logout/">退出</a></li>
+            <li class="nav-link"><a style='color:white' href="/home/">首页</a></li>
         </ul>
     </div>
 </nav>
 
+
+<!-- 搜索栏-->
+<div class="page-header" style="padding:70px;">
+    <form class="navbar-form" method="get" action="/apistepsearch/">
+        {% csrf_token %}
+        <input type="search" name="apistepsearch" placeholder="名称" required>
+        <button type="submit">搜索</button>
+    </form>
+</div>
+
 <!--流程接口测试步骤-->
-<div class="row" style="padding: 55px;">
+<div class="row" style="padding: 60px;">
     <div class="col-md-ll">
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>所属产品</th>
                 <th>所属用例</th>
-                <th>测试步骤</th>
+                <th>接口名称</th>
+                <!--<th>测试步骤</th>-->
                 <th>URL地址</th>
                 <th>请求参数</th>
                 <th>请求方法</th>
@@ -65,6 +77,36 @@
             </tbody>
         </table>
     </div>
+</div>
+<span style="position:absolute; right:100px; bottom:30px;"> {# 把翻页功能固定显示在右下角#}
+<div class="container">
+    <ul class="pagination" id="pager">
+        {# 上一页链接开始#}
+        {% if apisteps.has_previous %}
+        {# 如果有上一页，则正常显示上一页链接#}
+        <li class="previous"><a href="/apistep_manage/?page={{ apisteps.previous_page_number }}">上一页</a></li>
+        {# 上一页标签#}
+        {% else %}
+        <li class="previous disabled"><a href="#">上一页</a></li>
+        {# 如果当前不存在上一页，则上一页的链接不可单击#}
+        {% endif %}
+        {# 上一页链接结束#}
+        {% for num in apisteps.paginator.page_range %}
+        {% if num == currentPage %}
+        <li class="item active"><a href="/apistep_manage/?page={{ num }}">{{ num }}</a></li>
+        {#显示当页数链接#}
+        {% else %}
+        <li class="item"><a href="/apistep_manage/?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {# 下一页链接开始#}
+        {% if apisteps.has_next %} {# 如果有下一页，则正常显示下一页链接#}
+        <li class="next"><a href="/apistep_manage/?page={{ apisteps.next_page_number }}">下一页</a></li>
+        {% else %}
+        <li class="next disabled"><a href="#">下一页</a></li>
+        {% endif %}
+        {# 下一页链接结束#}
+    </ul>
 </div>
 </body>
 </html>
